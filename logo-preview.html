@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Options - Fred Assaf Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, #001a3a 0%, #002855 50%, #001a3a 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #9BCBEB;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(155, 203, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            border-color: #9BCBEB;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .logo-card h2 {
+            font-family: 'Libre Baskerville', serif;
+            color: #9BCBEB;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .logo-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container.dark {
+            background: #001a3a;
+        }
+        
+        .logo-container img {
+            max-width: 180px;
+            max-height: 180px;
+            width: auto;
+            height: auto;
+        }
+        
+        .logo-description {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .usage-section {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 2px solid rgba(155, 203, 235, 0.2);
+        }
+        
+        .usage-section h2 {
+            font-family: 'Libre Baskerville', serif;
+            color: #9BCBEB;
+            margin-bottom: 20px;
+        }
+        
+        .logo-in-context {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(0,40,85,0.8);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .logo-in-context img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo-in-context .brand-text {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .variations {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .variation {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .variation h3 {
+            color: #9BCBEB;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .variation .preview {
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .preview.on-white {
+            background: white;
+        }
+        
+        .preview.on-navy {
+            background: #002855;
+        }
+        
+        .preview.on-light {
+            background: #f0f4f8;
+        }
+        
+        .preview img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .preview .text {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+        }
+        
+        .preview.on-white .text,
+        .preview.on-light .text {
+            color: #002855;
+        }
+        
+        .preview.on-navy .text {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Logo Options 📷</h1>
+    <p class="subtitle">Knight + Camera designs for Fred Assaf Photography</p>
+    
+    <div class="logo-grid">
+        <!-- Option 1: Classic -->
+        <div class="logo-card">
+            <h2>Option 1: Classic Badge</h2>
+            <div class="logo-container dark">
+                <img src="images/logo-knight-camera.svg" alt="Classic Knight Camera Logo">
+            </div>
+            <p class="logo-description">
+                A circular badge design featuring a detailed knight helmet with a professional camera overlay. 
+                Subtle "FA" initials integrated into the design. Elegant and refined.
+            </p>
+        </div>
+        
+        <!-- Option 2: Comic/Fun -->
+        <div class="logo-card">
+            <h2>Option 2: Comic Fun</h2>
+            <div class="logo-container dark">
+                <img src="images/logo-knight-camera-comic.svg" alt="Comic Knight Camera Logo">
+            </div>
+            <p class="logo-description">
+                A playful, cartoon-style knight character holding a camera! Features cute eyes, 
+                bouncy plume feathers, and action sparkles. Perfect for a fun, kid-friendly vibe.
+            </p>
+        </div>
+        
+        <!-- Option 3: Shield -->
+        <div class="logo-card">
+            <h2>Option 3: Shield Crest</h2>
+            <div class="logo-container dark">
+                <img src="images/logo-knight-camera-shield.svg" alt="Shield Knight Camera Logo">
+            </div>
+            <p class="logo-description">
+                A traditional shield/crest design with knight helmet on top and camera below. 
+                Classic heraldic style meets modern photography. Prestigious and bold.
+            </p>
+        </div>
+    </div>
+    
+    <div class="usage-section">
+        <h2>How It Would Look In Use</h2>
+        
+        <div class="logo-in-context">
+            <img src="images/logo-knight-camera-comic.svg" alt="Logo">
+            <span class="brand-text">Fred Assaf Photography</span>
+        </div>
+        
+        <div class="variations">
+            <div class="variation">
+                <h3>On White Background</h3>
+                <div class="preview on-white">
+                    <img src="images/logo-knight-camera-comic.svg" alt="Logo">
+                    <span class="text">Fred Assaf</span>
+                </div>
+            </div>
+            
+            <div class="variation">
+                <h3>On Navy Background</h3>
+                <div class="preview on-navy">
+                    <img src="images/logo-knight-camera-comic.svg" alt="Logo">
+                    <span class="text">Fred Assaf</span>
+                </div>
+            </div>
+            
+            <div class="variation">
+                <h3>On Light Gray</h3>
+                <div class="preview on-light">
+                    <img src="images/logo-knight-camera-comic.svg" alt="Logo">
+                    <span class="text">Fred Assaf</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

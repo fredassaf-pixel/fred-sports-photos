@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dphoto Feature Demo | Enhanced Photo Experience</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Demo Page Specific Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .demo-header {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .demo-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+        
+        /* Section */
+        .demo-section {
+            margin-bottom: 60px;
+        }
+        
+        .demo-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .demo-section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #60a5fa, #a78bfa);
+            border-radius: 2px;
+        }
+        
+        .demo-section p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+        
+        /* Demo Box */
+        .demo-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .photo-card {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-card:hover .overlay {
+            opacity: 1;
+        }
+        
+        .photo-card .title {
+            color: white;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        /* Button Demo Row */
+        .button-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Feature List */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-item h3 svg {
+            color: #60a5fa;
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* Code Block */
+        .code-block {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        
+        .code-block pre {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            color: #c9d1d9;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .code-block .comment { color: #8b949e; }
+        .code-block .keyword { color: #ff7b72; }
+        .code-block .string { color: #a5d6ff; }
+        .code-block .function { color: #d2a8ff; }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255,255,255,0.4);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="demo-header">
+        <h1>dphoto Feature Demo</h1>
+        <p>Interactive demonstration of proposed enhancements</p>
+    </header>
+    
+    <main>
+        <!-- Lightbox Demo -->
+        <section class="demo-section">
+            <h2>Photo Lightbox</h2>
+            <p>Click any photo to open the enhanced lightbox viewer with swipe gestures, keyboard navigation, and action buttons.</p>
+            
+            <div class="demo-box">
+                <div class="photo-grid" id="photo-grid">
+                    <!-- Photos will be added dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Share Buttons Demo -->
+        <section class="demo-section">
+            <h2>Social Sharing</h2>
+            <p>One-tap sharing with native share sheet on mobile, or clipboard copy on desktop.</p>
+            
+            <div class="demo-box">
+                <div class="button-demo" id="share-buttons-container">
+                    <!-- Buttons added dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Download Button Demo -->
+        <section class="demo-section">
+            <h2>Save to Photos</h2>
+            <p>Download full-resolution images with meaningful filenames in one click.</p>
+            
+            <div class="demo-box">
+                <div class="button-demo" id="download-button-container">
+                    <!-- Button added dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technical Features -->
+        <section class="demo-section">
+            <h2>Technical Features</h2>
+            <p>Built with modern web standards for the best user experience.</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12" y2="18"/>
+                        </svg>
+                        Mobile-First
+                    </h3>
+                    <p>Uses Web Share API for native share sheets on iOS and Android. Touch gestures for swipe navigation.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                        Desktop Support
+                    </h3>
+                    <p>Keyboard navigation with arrow keys and Escape. Graceful fallbacks for all features.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        Fast Loading
+                    </h3>
+                    <p>Lazy loading images, CSS animations, and minimal JavaScript for optimal performance.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v8m-4-4h8"/>
+                        </svg>
+                        Accessibility
+                    </h3>
+                    <p>ARIA labels, keyboard navigation, and proper focus management for all users.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        Easy Integration
+                    </h3>
+                    <p>Modular design with CSS variables for easy customization and branding.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        </svg>
+                        No Dependencies
+                    </h3>
+                    <p>Pure JavaScript with no external libraries required. Works with any framework.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Integration Example -->
+        <section class="demo-section">
+            <h2>Integration Example</h2>
+            <p>Simple code snippet showing how these features could be added to dphoto.</p>
+            
+            <div class="code-block">
+<pre><span class="comment">// Initialize the photo modules</span>
+<span class="keyword">const</span> shareManager = <span class="keyword">new</span> <span class="function">PhotoShareManager</span>({
+    photographer: <span class="string">'Fred Assaf'</span>,
+    hashtags: [<span class="string">'paceacademy'</span>, <span class="string">'photography'</span>]
+});
+
+<span class="keyword">const</span> downloadManager = <span class="keyword">new</span> <span class="function">PhotoDownloadManager</span>({
+    photographer: <span class="string">'fredassaf'</span>,
+    showConfirmation: <span class="keyword">true</span>
+});
+
+<span class="keyword">const</span> lightbox = <span class="keyword">new</span> <span class="function">PhotoLightbox</span>({
+    photos: albumPhotos,
+    <span class="function">onShare</span>: (photo) => shareManager.<span class="function">sharePhoto</span>(photo),
+    <span class="function">onDownload</span>: (photo) => downloadManager.<span class="function">downloadPhoto</span>(photo)
+});</pre>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Proposed features for dphoto.com by <a href="https://fredassaf.org">Fred Assaf</a></p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">All code is open source and ready for integration</p>
+    </footer>
+    
+    <!-- Load Component Scripts -->
+    <script src="share-buttons.js"></script>
+    <script src="download-button.js"></script>
+    <script src="lightbox.js"></script>
+    
+    <script>
+        // Demo photos (using placeholder images)
+        const demoPhotos = [
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800',
+                title: 'Championship Game Action',
+                albumUrl: 'https://fredassaf.org/album/sports'
+            },
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?w=800',
+                title: 'Spring Musical Performance',
+                albumUrl: 'https://fredassaf.org/album/drama'
+            },
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800',
+                title: 'Graduation Ceremony 2025',
+                albumUrl: 'https://fredassaf.org/album/events'
+            },
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800',
+                title: 'Science Lab Discovery',
+                albumUrl: 'https://fredassaf.org/album/academics'
+            },
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800',
+                title: 'Basketball Championship',
+                albumUrl: 'https://fredassaf.org/album/sports'
+            },
+            {
+                imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800',
+                title: 'Classroom Collaboration',
+                albumUrl: 'https://fredassaf.org/album/academics'
+            }
+        ];
+        
+        // Initialize managers
+        const shareManager = new PhotoShareManager({
+            photographer: 'Fred Assaf',
+            hashtags: ['paceacademy', 'photography']
+        });
+        
+        const downloadManager = new PhotoDownloadManager({
+            photographer: 'fredassaf',
+            showConfirmation: true
+        });
+        
+        // Initialize lightbox
+        const lightbox = new PhotoLightbox({
+            photos: demoPhotos,
+            onShare: (photo) => shareManager.sharePhoto(photo),
+            onDownload: (photo) => downloadManager.downloadPhoto(photo)
+        });
+        
+        // Populate photo grid
+        const grid = document.getElementById('photo-grid');
+        demoPhotos.forEach((photo, index) => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            card.innerHTML = `
+                <img src="${photo.imageUrl}" alt="${photo.title}">
+                <div class="overlay">
+                    <span class="title">${photo.title}</span>
+                </div>
+            `;
+            card.addEventListener('click', () => lightbox.open(index));
+            grid.appendChild(card);
+        });
+        
+        // Create share buttons demo
+        const shareContainer = document.getElementById('share-buttons-container');
+        createShareButtons(shareContainer, demoPhotos[0], shareManager);
+        
+        // Create download button demo
+        const downloadContainer = document.getElementById('download-button-container');
+        createDownloadButton(downloadContainer, demoPhotos[0], downloadManager);
+    </script>
+</body>
+</html>
+

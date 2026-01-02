@@ -1,0 +1,364 @@
+/**
+ * DPHOTO ENHANCED UI STYLES
+ * =========================
+ * 
+ * Styling for share buttons, download button, and lightbox components.
+ * Designed to integrate seamlessly with dphoto's existing UI.
+ * 
+ * @author Fred Assaf / Developer
+ * @version 1.0.0
+ */
+
+/* ===========================================
+   VARIABLES - Easy to customize
+   =========================================== */
+:root {
+    --dphoto-primary: #3b82f6;
+    --dphoto-primary-hover: #2563eb;
+    --dphoto-success: #22c55e;
+    --dphoto-text: #ffffff;
+    --dphoto-text-muted: rgba(255, 255, 255, 0.7);
+    --dphoto-overlay: rgba(0, 0, 0, 0.95);
+    --dphoto-button-bg: rgba(255, 255, 255, 0.15);
+    --dphoto-button-hover: rgba(255, 255, 255, 0.25);
+    --dphoto-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --dphoto-radius: 10px;
+    --dphoto-radius-lg: 16px;
+    --dphoto-transition: 0.3s ease;
+}
+
+
+/* ===========================================
+   BUTTONS - Shared button styles
+   =========================================== */
+.dphoto-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--dphoto-text);
+    background: var(--dphoto-button-bg);
+    border: none;
+    border-radius: var(--dphoto-radius);
+    cursor: pointer;
+    transition: all var(--dphoto-transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dphoto-btn:hover {
+    background: var(--dphoto-button-hover);
+    transform: translateY(-2px);
+}
+
+.dphoto-btn:active {
+    transform: translateY(0);
+}
+
+.dphoto-btn svg {
+    flex-shrink: 0;
+}
+
+/* Button variants */
+.dphoto-btn-download {
+    background: var(--dphoto-primary);
+}
+
+.dphoto-btn-download:hover {
+    background: var(--dphoto-primary-hover);
+}
+
+.dphoto-btn-share {
+    background: var(--dphoto-button-bg);
+}
+
+.dphoto-btn-instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.dphoto-btn-instagram:hover {
+    background: linear-gradient(45deg, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+}
+
+/* Loading state */
+.dphoto-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.dphoto-btn .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ===========================================
+   SHARE BUTTONS GROUP
+   =========================================== */
+.dphoto-share-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* ===========================================
+   TOAST NOTIFICATIONS
+   =========================================== */
+.dphoto-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: var(--dphoto-shadow);
+    opacity: 0;
+    transition: all var(--dphoto-transition);
+    z-index: 99999;
+}
+
+.dphoto-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ===========================================
+   LIGHTBOX
+   =========================================== */
+.dphoto-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.dphoto-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Overlay */
+.dphoto-lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dphoto-overlay);
+}
+
+/* Content */
+.dphoto-lightbox-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    box-sizing: border-box;
+}
+
+/* Image */
+.dphoto-lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+/* Loader */
+.dphoto-lightbox-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.dphoto-lightbox-loader.active {
+    opacity: 1;
+}
+
+.dphoto-lightbox-loader .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Close button */
+.dphoto-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dphoto-button-bg);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all var(--dphoto-transition);
+}
+
+.dphoto-lightbox-close:hover {
+    background: var(--dphoto-button-hover);
+    transform: rotate(90deg);
+}
+
+/* Navigation arrows */
+.dphoto-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dphoto-button-bg);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all var(--dphoto-transition);
+}
+
+.dphoto-lightbox-prev {
+    left: 20px;
+}
+
+.dphoto-lightbox-next {
+    right: 20px;
+}
+
+.dphoto-lightbox-nav:hover {
+    background: var(--dphoto-button-hover);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Info bar */
+.dphoto-lightbox-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--dphoto-text-muted);
+    font-size: 14px;
+}
+
+.dphoto-lightbox-counter {
+    background: var(--dphoto-button-bg);
+    padding: 8px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dphoto-lightbox-title {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Action buttons */
+.dphoto-lightbox-actions {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+
+/* ===========================================
+   MOBILE RESPONSIVE
+   =========================================== */
+@media (max-width: 768px) {
+    .dphoto-lightbox-content {
+        padding: 60px 20px;
+    }
+    
+    .dphoto-lightbox-nav {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .dphoto-lightbox-prev {
+        left: 10px;
+    }
+    
+    .dphoto-lightbox-next {
+        right: 10px;
+    }
+    
+    .dphoto-lightbox-close {
+        width: 44px;
+        height: 44px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .dphoto-lightbox-actions {
+        bottom: 20px;
+        width: calc(100% - 40px);
+        justify-content: center;
+    }
+    
+    .dphoto-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .dphoto-lightbox-title {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .dphoto-lightbox-nav {
+        display: none;
+    }
+    
+    .dphoto-lightbox-info {
+        top: auto;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+

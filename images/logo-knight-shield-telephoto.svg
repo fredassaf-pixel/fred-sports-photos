@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <defs>
+    <linearGradient id="shieldBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003366"/>
+      <stop offset="50%" style="stop-color:#002855"/>
+      <stop offset="100%" style="stop-color:#001a3a"/>
+    </linearGradient>
+    <linearGradient id="metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a0aec0"/>
+      <stop offset="30%" style="stop-color:#718096"/>
+      <stop offset="70%" style="stop-color:#4a5568"/>
+      <stop offset="100%" style="stop-color:#2d3748"/>
+    </linearGradient>
+    <linearGradient id="lensTube" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a5568"/>
+      <stop offset="25%" style="stop-color:#2d3748"/>
+      <stop offset="50%" style="stop-color:#4a5568"/>
+      <stop offset="75%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#1a202c"/>
+    </linearGradient>
+    <linearGradient id="glassLens" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed"/>
+      <stop offset="40%" style="stop-color:#3182ce"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <filter id="dropShadow2">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glowEffect">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shield shape - fun rounded -->
+  <path d="M100 8 L185 35 Q190 40 190 50 L190 120 Q190 190 100 215 Q10 190 10 120 L10 50 Q10 40 15 35 Z" 
+        fill="url(#shieldBg)" stroke="#9BCBEB" stroke-width="5" filter="url(#dropShadow2)"/>
+  
+  <!-- Inner decorative border -->
+  <path d="M100 22 L175 45 L175 115 Q175 175 100 200 Q25 175 25 115 L25 45 Z" 
+        fill="none" stroke="#9BCBEB" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Diagonal decorative band -->
+  <path d="M35 60 L165 160" stroke="#9BCBEB" stroke-width="20" opacity="0.1" stroke-linecap="round"/>
+  
+  <!-- Fun Knight Head - top of shield -->
+  <g transform="translate(100, 75)" filter="url(#dropShadow2)">
+    
+    <!-- Helmet base -->
+    <ellipse cx="0" cy="0" rx="38" ry="40" fill="url(#metallic)" stroke="#4a5568" stroke-width="3"/>
+    
+    <!-- Helmet highlight -->
+    <ellipse cx="-12" cy="-15" rx="15" ry="12" fill="white" opacity="0.15"/>
+    
+    <!-- Big friendly visor -->
+    <path d="M-30 -5 Q0 -15 30 -5 Q30 12 0 18 Q-30 12 -30 -5 Z" 
+          fill="#002855" stroke="#1a202c" stroke-width="2"/>
+    
+    <!-- Cartoon eyes - big and expressive -->
+    <g>
+      <!-- Left eye -->
+      <ellipse cx="-12" cy="2" rx="10" ry="12" fill="white"/>
+      <ellipse cx="-9" cy="3" rx="6" ry="8" fill="#002855"/>
+      <circle cx="-7" cy="0" r="3" fill="white"/>
+      
+      <!-- Right eye -->
+      <ellipse cx="12" cy="2" rx="10" ry="12" fill="white"/>
+      <ellipse cx="15" cy="3" rx="6" ry="8" fill="#002855"/>
+      <circle cx="17" cy="0" r="3" fill="white"/>
+    </g>
+    
+    <!-- Happy eyebrows -->
+    <path d="M-22 -12 Q-12 -18 -2 -12" stroke="#4a5568" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M2 -12 Q12 -18 22 -12" stroke="#4a5568" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Plume - bouncy and fun -->
+    <ellipse cx="0" cy="-50" rx="10" ry="22" fill="#9BCBEB"/>
+    <ellipse cx="0" cy="-52" rx="6" ry="18" fill="#002855"/>
+    <ellipse cx="-15" cy="-42" rx="7" ry="16" fill="#002855" transform="rotate(-25, -15, -42)"/>
+    <ellipse cx="-15" cy="-44" rx="5" ry="12" fill="#9BCBEB" transform="rotate(-25, -15, -44)"/>
+    <ellipse cx="15" cy="-42" rx="7" ry="16" fill="#002855" transform="rotate(25, 15, -42)"/>
+    <ellipse cx="15" cy="-44" rx="5" ry="12" fill="#9BCBEB" transform="rotate(25, 15, -44)"/>
+  </g>
+  
+  <!-- BIG CAMERA with TELEPHOTO - bottom of shield -->
+  <g transform="translate(100, 155)" filter="url(#dropShadow2)">
+    
+    <!-- Camera body -->
+    <rect x="-45" y="-22" width="55" height="40" rx="6" fill="#1a202c" stroke="#9BCBEB" stroke-width="2"/>
+    
+    <!-- Pentaprism -->
+    <path d="M-38 -28 L-25 -35 L-10 -35 L3 -28 L-38 -28 Z" fill="#1a202c" stroke="#9BCBEB" stroke-width="1.5"/>
+    
+    <!-- Viewfinder -->
+    <rect x="-28" y="-33" width="12" height="6" rx="1" fill="#2d3748"/>
+    
+    <!-- Flash -->
+    <rect x="-8" y="-38" width="14" height="8" rx="2" fill="#9BCBEB"/>
+    <rect x="-6" y="-36" width="10" height="4" fill="white" opacity="0.6"/>
+    
+    <!-- Shutter button -->
+    <ellipse cx="0" cy="-30" rx="6" ry="4" fill="#9BCBEB" stroke="#002855" stroke-width="1"/>
+    
+    <!-- BIG TELEPHOTO LENS -->
+    <g>
+      <!-- Lens barrel -->
+      <rect x="8" y="-15" width="60" height="26" rx="13" fill="url(#lensTube)" stroke="#5a6a7a" stroke-width="2"/>
+      
+      <!-- Lens ridges -->
+      <ellipse cx="18" cy="-2" rx="2" ry="13" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      <ellipse cx="35" cy="-2" rx="2" ry="11" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      <ellipse cx="50" cy="-2" rx="2" ry="10" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      
+      <!-- Focus ring pattern -->
+      <g stroke="#4a5568" stroke-width="1" opacity="0.6">
+        <line x1="22" y1="-12" x2="22" y2="8"/>
+        <line x1="26" y1="-13" x2="26" y2="9"/>
+        <line x1="30" y1="-13" x2="30" y2="9"/>
+      </g>
+      
+      <!-- Lens hood -->
+      <path d="M62 -15 L75 -20 L75 16 L62 11 Z" fill="#2d3748" stroke="#4a5568" stroke-width="1.5"/>
+      
+      <!-- Front glass element - BIG -->
+      <ellipse cx="75" cy="-2" rx="4" ry="18" fill="url(#glassLens)" stroke="#9BCBEB" stroke-width="2"/>
+      
+      <!-- Glass reflections -->
+      <ellipse cx="73" cy="-10" rx="2" ry="6" fill="white" opacity="0.5"/>
+      <ellipse cx="76" cy="5" rx="1" ry="4" fill="white" opacity="0.3"/>
+      
+      <!-- Red dot -->
+      <circle cx="12" cy="-8" r="2.5" fill="#e53e3e"/>
+    </g>
+    
+    <!-- Lens mount -->
+    <ellipse cx="10" cy="-2" rx="3" ry="15" fill="#4a5568"/>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <g fill="#9BCBEB" filter="url(#glowEffect)">
+    <polygon points="175,130 178,135 183,135 179,139 181,144 175,141 169,144 171,139 167,135 172,135" transform="scale(0.8)"/>
+    <circle cx="160" cy="155" r="3"/>
+    <circle cx="170" cy="140" r="2"/>
+  </g>
+  
+  <!-- Corner stars -->
+  <g fill="#9BCBEB" opacity="0.7">
+    <circle cx="40" cy="55" r="3"/>
+    <circle cx="160" cy="55" r="3"/>
+  </g>
+</svg>
+

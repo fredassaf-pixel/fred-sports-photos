@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a0aec0"/>
+      <stop offset="50%" style="stop-color:#718096"/>
+      <stop offset="100%" style="stop-color:#4a5568"/>
+    </linearGradient>
+    <linearGradient id="navyDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003366"/>
+      <stop offset="100%" style="stop-color:#001a3a"/>
+    </linearGradient>
+    <filter id="metalShine">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Medieval shield shape - modern rounded -->
+  <path d="M100 10 L180 35 Q188 40 188 50 L188 115 Q188 175 100 195 Q12 175 12 115 L12 50 Q12 40 20 35 Z" 
+        fill="url(#navyDeep)" stroke="#9BCBEB" stroke-width="4"/>
+  
+  <!-- Inner shield border - heraldic style -->
+  <path d="M100 25 L170 47 L170 112 Q170 162 100 180 Q30 162 30 112 L30 47 Z" 
+        fill="none" stroke="#9BCBEB" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Medieval crossed swords behind camera -->
+  <g stroke="url(#steelGrad)" stroke-width="6" stroke-linecap="round" filter="url(#metalShine)">
+    <!-- Left sword -->
+    <line x1="45" y1="55" x2="155" y2="145"/>
+    <!-- Right sword -->
+    <line x1="155" y1="55" x2="45" y2="145"/>
+  </g>
+  
+  <!-- Sword hilts -->
+  <g fill="url(#steelGrad)" filter="url(#metalShine)">
+    <!-- Top left hilt -->
+    <rect x="38" y="48" width="20" height="8" rx="2" transform="rotate(-45, 48, 52)"/>
+    <!-- Top right hilt -->
+    <rect x="142" y="48" width="20" height="8" rx="2" transform="rotate(45, 152, 52)"/>
+  </g>
+  
+  <!-- Sword pommels (decorative ends) -->
+  <g fill="#9BCBEB">
+    <circle cx="42" cy="52" r="6"/>
+    <circle cx="158" cy="52" r="6"/>
+  </g>
+  
+  <!-- Fun camera in center - bold and prominent -->
+  <g transform="translate(100, 105)" filter="url(#metalShine)">
+    <!-- Camera body -->
+    <rect x="-40" y="-22" width="80" height="50" rx="10" fill="#9BCBEB"/>
+    <rect x="-36" y="-18" width="72" height="42" rx="7" fill="#002855"/>
+    
+    <!-- Viewfinder bump -->
+    <rect x="-28" y="-32" width="28" height="12" rx="4" fill="#9BCBEB"/>
+    
+    <!-- Flash -->
+    <rect x="8" y="-35" width="20" height="10" rx="3" fill="white"/>
+    <rect x="10" y="-33" width="16" height="5" rx="2" fill="#9BCBEB" opacity="0.5"/>
+    
+    <!-- Big lens -->
+    <circle cx="0" cy="5" r="26" fill="#002855" stroke="#9BCBEB" stroke-width="3"/>
+    <circle cx="0" cy="5" r="20" fill="#001a3a"/>
+    <circle cx="0" cy="5" r="14" fill="#002855"/>
+    
+    <!-- Lens shine -->
+    <ellipse cx="-6" cy="-2" rx="7" ry="5" fill="white" opacity="0.3"/>
+    
+    <!-- Lens center glow -->
+    <circle cx="0" cy="5" r="7" fill="#9BCBEB" opacity="0.9"/>
+    <circle cx="0" cy="5" r="3" fill="white"/>
+    
+    <!-- Shutter button -->
+    <circle cx="30" cy="-25" r="7" fill="white"/>
+    <circle cx="30" cy="-25" r="4" fill="#9BCBEB"/>
+  </g>
+  
+  <!-- Medieval banner/ribbon at top -->
+  <g filter="url(#metalShine)">
+    <path d="M50 20 Q100 35 150 20 L145 8 Q100 22 55 8 Z" fill="#9BCBEB"/>
+    <path d="M55 8 L50 20 L45 12 Z" fill="#7bb8e0"/>
+    <path d="M145 8 L150 20 L155 12 Z" fill="#7bb8e0"/>
+  </g>
+  
+  <!-- Stars -->
+  <g fill="white">
+    <polygon points="100,15 102,20 107,20 103,23 105,28 100,25 95,28 97,23 93,20 98,20"/>
+  </g>
+  
+  <!-- Small decorative dots -->
+  <g fill="#9BCBEB" opacity="0.7">
+    <circle cx="50" cy="170" r="3"/>
+    <circle cx="150" cy="170" r="3"/>
+  </g>
+</svg>
+

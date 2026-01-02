@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval + Camera Logos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, #001a3a 0%, #002855 50%, #001a3a 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+            color: #9BCBEB;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .logo-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 22px;
+            text-align: center;
+            border: 2px solid rgba(155, 203, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            border-color: #9BCBEB;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+        
+        .logo-card h2 {
+            color: #9BCBEB;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        
+        .logo-display {
+            background: linear-gradient(145deg, #002855, #001a3a);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 12px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-display img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+        
+        .description {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            color: #9BCBEB;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚔️ Medieval + Fun Camera 📸</h1>
+    <p class="subtitle">Fresh designs blending knight/medieval elements with a bold camera</p>
+    
+    <div class="logo-grid">
+        
+        <!-- Option 1: Crossed Swords Shield -->
+        <div class="logo-card">
+            <h2>⚔️ Sword & Shield</h2>
+            <div class="logo-display">
+                <img src="images/logo-medieval-camera-1.svg" alt="Medieval Shield Camera">
+            </div>
+            <p class="description">
+                Heraldic <span class="highlight">shield with crossed swords</span> behind a bold, fun camera. Medieval banner at top with star.
+            </p>
+        </div>
+        
+        <!-- Option 2: Helmet Visor Lens -->
+        <div class="logo-card">
+            <h2>🪖 Knight's Eye View</h2>
+            <div class="logo-display">
+                <img src="images/logo-medieval-camera-2.svg" alt="Helmet Visor Camera">
+            </div>
+            <p class="description">
+                Knight helmet where the <span class="highlight">visor IS the camera lens</span>! Plume feathers and decorative rivets.
+            </p>
+        </div>
+        
+        <!-- Option 3: Royal Rose Window -->
+        <div class="logo-card">
+            <h2>👑 Royal Crest</h2>
+            <div class="logo-display">
+                <img src="images/logo-medieval-camera-3.svg" alt="Royal Crest Camera">
+            </div>
+            <p class="description">
+                Shield with <span class="highlight">stained-glass rose pattern</span> forming shutter blades. Crown on top!
+            </p>
+        </div>
+        
+        <!-- Option 4: Crown & Banner -->
+        <div class="logo-card">
+            <h2>🎗️ Crown & Banner</h2>
+            <div class="logo-display">
+                <img src="images/logo-medieval-camera-4.svg" alt="Crown Banner Camera">
+            </div>
+            <p class="description">
+                Bold fun camera with <span class="highlight">royal crown above</span> and flowing medieval banner. Fresh and playful!
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred Assaf Sports Photos | Pace Academy Knights • Atlanta, Georgia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pace-navy: #002855;
+            --pace-navy-dark: #001a3a;
+            --pace-columbia: #9BCBEB;
+            --pace-columbia-bright: #7bb8e0;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --text-dark: #1a2332;
+            --text-muted: #5a6a7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--pace-navy-dark);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 26, 58, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 4rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--white);
+            border: none;
+            color: var(--pace-navy);
+            padding: 0.85rem 1.75rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--pace-columbia);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section - Full Screen Slideshow */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .slide.active img {
+            animation: slowZoom 4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        }
+
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1) translateZ(0);
+            }
+            100% {
+                transform: scale(1.05) translateZ(0);
+            }
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 26, 58, 0.85) 0%,
+                rgba(0, 26, 58, 0.6) 40%,
+                rgba(0, 26, 58, 0.4) 100%
+            );
+        }
+
+        .slide-category {
+            position: absolute;
+            top: 50%;
+            right: 5rem;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--pace-columbia);
+            opacity: 0;
+            transition: opacity 0.8s ease 0.5s;
+        }
+
+        .slide.active .slide-category {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem;
+            max-width: 750px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.5s forwards;
+        }
+
+        .hero-title .accent {
+            color: var(--pace-columbia);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.7s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.9s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            color: var(--pace-navy);
+            padding: 1.1rem 2.25rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--pace-columbia);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--white);
+            padding: 1.1rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Slide Progress Indicators */
+        .slide-indicators {
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+            display: flex;
+            gap: 0.75rem;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.1s forwards;
+        }
+
+        .indicator {
+            width: 50px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .indicator.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .indicator.active::after {
+            content: '';
+            display: block;
+            height: 100%;
+            background: var(--pace-columbia);
+            animation: progress 6s linear forwards;
+        }
+
+        @keyframes progress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Stats Row */
+        .stats-row {
+            position: absolute;
+            bottom: 4rem;
+            right: 4rem;
+            display: flex;
+            gap: 3rem;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.2s forwards;
+        }
+
+        .stat-item {
+            text-align: right;
+        }
+
+        .stat-number {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-number span {
+            color: var(--pace-columbia);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.4rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.3s forwards;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--pace-columbia), transparent);
+            position: relative;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: white;
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(50px); opacity: 0; }
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 7rem 4rem;
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .section-header {
+            max-width: 1300px;
+            margin: 0 auto 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--pace-navy);
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--off-white);
+            padding: 0.4rem;
+            border-radius: 8px;
+        }
+
+        .filter-tab {
+            padding: 0.7rem 1.25rem;
+            border: none;
+            background: transparent;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab.active {
+            background: var(--pace-navy);
+            color: var(--white);
+        }
+
+        .filter-tab:hover:not(.active) {
+            background: rgba(0, 40, 85, 0.08);
+            color: var(--pace-navy);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-decoration: none;
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(5) { grid-column: span 2; }
+
+        .gallery-item::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .gallery-item:nth-child(1)::before { padding-top: 100%; }
+        .gallery-item:nth-child(5)::before { padding-top: 50%; }
+
+        .gallery-item img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 40, 85, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 26, 58, 0.95) 0%, rgba(0, 26, 58, 0.4) 40%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--pace-columbia);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .gallery-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-count {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            padding: 7rem 4rem;
+            background: var(--off-white);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .featured-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 40, 85, 0.06);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 40, 85, 0.12);
+        }
+
+        .featured-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.08);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--pace-navy);
+            color: var(--white);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .featured-badge.new {
+            background: #059669;
+        }
+
+        .featured-content {
+            padding: 1.75rem;
+        }
+
+        .featured-date {
+            font-size: 0.8rem;
+            color: var(--pace-columbia-bright);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-title {
+            font-size: 1.25rem;
+            color: var(--pace-navy);
+            margin-bottom: 1rem;
+            line-height: 1.35;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .featured-meta svg {
+            stroke: var(--pace-columbia);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            padding: 5rem 4rem;
+            background: var(--pace-navy);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-block:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .stat-block .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-block .number {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-block .label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 7rem 4rem;
+            background: var(--white);
+        }
+
+        .about-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-img-main {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 40, 85, 0.12);
+        }
+
+        .about-img-main img {
+            width: 100%;
+            display: block;
+        }
+
+        .about-img-secondary {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 40, 85, 0.15);
+            border: 5px solid var(--white);
+        }
+
+        .about-img-secondary img {
+            width: 100%;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--pace-navy);
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-signature {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.75rem;
+            font-style: italic;
+            color: var(--pace-navy);
+            margin-top: 2rem;
+        }
+
+        .about-cta {
+            margin-top: 2.5rem;
+        }
+
+        .btn-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--pace-navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            background: var(--pace-navy-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 40, 85, 0.2);
+        }
+
+        .btn-dark svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-dark:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 4rem 2rem;
+            background: var(--pace-navy-dark);
+            color: var(--white);
+        }
+
+        .footer-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--pace-columbia);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--pace-columbia);
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(1) { grid-column: span 2; }
+            .gallery-item:nth-child(5) { grid-column: span 2; }
+
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 0 2rem;
+            }
+
+            .slide-category {
+                display: none;
+            }
+
+            .slide-indicators {
+                left: 2rem;
+                bottom: 2rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .gallery-section, .featured-section, .about-section {
+                padding: 4rem 2rem;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-img-secondary {
+                right: auto;
+                left: 60%;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-primary, .btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .slide-indicators {
+                gap: 0.5rem;
+            }
+
+            .indicator {
+                width: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .gallery-item::before {
+                padding-top: 75% !important;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-tabs {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Photo Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .lightbox-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.75rem;
+            border-radius: 12px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .lightbox-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .btn-download {
+            background: var(--white);
+            color: var(--pace-navy);
+        }
+
+        .btn-download:hover {
+            background: var(--pace-columbia);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.4);
+        }
+
+        .btn-share {
+            background: var(--pace-columbia);
+            color: var(--pace-navy);
+        }
+
+        .btn-share:hover {
+            background: var(--pace-columbia-bright);
+            transform: translateY(-3px);
+        }
+
+        .lightbox-info {
+            margin-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        /* Click indicator on slideshow */
+        .slide-click-hint {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slide:hover .slide-click-hint {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-actions {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .lightbox-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .lightbox-nav {
+                display: none;
+            }
+
+            .lightbox-close {
+                top: -60px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="images/logo-fred-sports-transparent.png" alt="Fred's Sports Photos - Go Knights!">
+            </div>
+            <span class="logo-text">Fred Assaf Photography</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#galleries">Photo Galleries</a></li>
+            <li><a href="#recent">Recent Albums</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="nav-cta" onclick="window.location.href='https://www.fredassaf.org'">View All Photos</button>
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section with Full-Screen Slideshow -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <!-- Slide 1 - Flag Football Action -->
+            <div class="slide active" data-index="0">
+                <img src="images/Flag-33.jpg" alt="Flag Football Championship">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Flag Football</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 2 - Softball -->
+            <div class="slide" data-index="1">
+                <img src="images/Softball-15.jpg" alt="Softball Pitcher">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Softball</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 3 - School Spirit -->
+            <div class="slide" data-index="2">
+                <img src="images/KnightsFB-28.jpg" alt="Knights Football Game Day">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">School Spirit</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 4 - Theater -->
+            <div class="slide" data-index="3">
+                <img src="images/MSPlay-120.jpg" alt="Middle School Play">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Theater</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 5 - School Life -->
+            <div class="slide" data-index="4">
+                <img src="images/rafting-131.jpg" alt="Outdoor Adventure">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Adventures</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 6 - Volleyball -->
+            <div class="slide" data-index="5">
+                <img src="images/vb-88.jpg" alt="Volleyball Action">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Volleyball</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 7 - Varsity Football -->
+            <div class="slide" data-index="6">
+                <img src="images/boys-football2.jpg" alt="Varsity Football Action">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Varsity Football</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 8 - Graduation -->
+            <div class="slide" data-index="7">
+                <img src="images/grad.jpg" alt="Graduation Ceremony">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Graduation</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 9 - Music -->
+            <div class="slide" data-index="8">
+                <img src="images/violin.jpg" alt="Orchestra Performance">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Fine Arts</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+
+            <!-- Slide 10 - Football Action -->
+            <div class="slide" data-index="9">
+                <img src="images/boys-football.jpg" alt="Football Game Action">
+                <div class="slide-overlay"></div>
+                <span class="slide-category">Football</span>
+                <div class="slide-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    Tap to download or share
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Pace Academy Knights • Atlanta, Georgia
+            </div>
+            <h1 class="hero-title">
+                Capturing Every <span class="accent">Moment</span> That Matters
+            </h1>
+            <p class="hero-description">
+                From championship victories to standing ovations — we preserve the spirit, passion, and pride of Pace Academy for generations to come.
+            </p>
+            <div class="hero-actions">
+                <a href="https://www.fredassaf.org" class="btn-primary">
+                    Explore Photo Galleries
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#galleries" class="btn-ghost">
+                    Browse by Category
+                </a>
+            </div>
+        </div>
+
+        <!-- Slide Progress Indicators -->
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
+            <div class="indicator" data-slide="4"></div>
+            <div class="indicator" data-slide="5"></div>
+            <div class="indicator" data-slide="6"></div>
+            <div class="indicator" data-slide="7"></div>
+            <div class="indicator" data-slide="8"></div>
+            <div class="indicator" data-slide="9"></div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">715,850<span>+</span></div>
+                <div class="stat-label">Photos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10<span>+</span></div>
+                <div class="stat-label">Years</div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="galleries">
+        <div class="section-header">
+            <div>
+                <h2>Browse Photo Galleries</h2>
+                <p>Explore thousands of photos organized by category</p>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active">All Categories</button>
+                <button class="filter-tab">Sports</button>
+                <button class="filter-tab">Performances</button>
+                <button class="filter-tab">School Events</button>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <a href="https://www.fredassaf.org/album/nvo3qbyf" class="gallery-item" target="_blank">
+                <img src="images/MSFootball-17.jpg" alt="Sports photography">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Athletics</span>
+                    <h3 class="gallery-title">Sports and Games</h3>
+                    <p class="gallery-count">Over 250,000 photos</p>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/6yzrwfew" class="gallery-item" target="_blank">
+                <img src="images/violin.jpg" alt="Music and performances">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Arts</span>
+                    <h3 class="gallery-title">Theater and Music</h3>
+                    <p class="gallery-count">Over 85,000 photos</p>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/sovvp3" class="gallery-item" target="_blank">
+                <img src="images/grad.jpg" alt="Graduation ceremonies">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Milestones</span>
+                    <h3 class="gallery-title">Graduation</h3>
+                    <p class="gallery-count">Over 45,000 photos</p>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/2rpgsm4a" class="gallery-item" target="_blank">
+                <img src="images/parade-52.jpg" alt="Campus life">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Campus</span>
+                    <h3 class="gallery-title">School Life</h3>
+                    <p class="gallery-count">Over 120,000 photos</p>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/d8xaoelp" class="gallery-item" target="_blank">
+                <img src="images/1candle-235.jpg" alt="Special events">
+                <div class="gallery-overlay">
+                    <span class="gallery-category">Celebrations</span>
+                    <h3 class="gallery-title">Special Events</h3>
+                    <p class="gallery-count">Over 75,000 photos</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section" id="recent">
+        <div class="section-header">
+            <div>
+                <h2>Recently Added Albums</h2>
+                <p>Fresh photos from the latest events</p>
+            </div>
+            <a href="https://www.fredassaf.org" class="btn-dark">
+                View All Albums
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="featured-grid">
+            <a href="https://www.fredassaf.org/album/tjrcdujc" class="featured-card" target="_blank">
+                <div class="featured-image">
+                    <img src="images/1candle-235.jpg" alt="Light One Candle ceremony">
+                    <span class="featured-badge new">New</span>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-date">December 2024</span>
+                    <h3 class="featured-title">Light One Candle</h3>
+                    <div class="featured-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15l-5-5L5 21"/>
+                        </svg>
+                        245 photos
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/iqactgay" class="featured-card" target="_blank">
+                <div class="featured-image">
+                    <img src="images/FlagSeniors-190.jpg" alt="Flag Football Championship">
+                    <span class="featured-badge new">New</span>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-date">December 2024</span>
+                    <h3 class="featured-title">Flag Football State Championship</h3>
+                    <div class="featured-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15l-5-5L5 21"/>
+                        </svg>
+                        189 photos
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.fredassaf.org/album/ruhf430j" class="featured-card" target="_blank">
+                <div class="featured-image">
+                    <img src="images/Wendell-97.jpg" alt="Wendell Carter Jr. Visit">
+                    <span class="featured-badge">Featured</span>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-date">Fall 2024</span>
+                    <h3 class="featured-title">Wendell Carter Jr. Returns to Pace</h3>
+                    <div class="featured-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15l-5-5L5 21"/>
+                        </svg>
+                        179 photos
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-block">
+                <div class="icon">📷</div>
+                <div class="number">715,850</div>
+                <div class="label">Photos in Archive</div>
+            </div>
+            <div class="stat-block">
+                <div class="icon">💾</div>
+                <div class="number">5.5 TB</div>
+                <div class="label">Of Preserved Memories</div>
+            </div>
+            <div class="stat-block">
+                <div class="icon">🎬</div>
+                <div class="number">100+</div>
+                <div class="label">Event Videos</div>
+            </div>
+            <div class="stat-block">
+                <div class="icon">📅</div>
+                <div class="number">10+</div>
+                <div class="label">Years of Coverage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-wrapper">
+            <div class="about-images">
+                <div class="about-img-main">
+                    <img src="images/Wendell-97.jpg" alt="Pace Academy Knight Mascot">
+                </div>
+                <div class="about-img-secondary">
+                    <img src="images/grad.jpg" alt="Pace Academy Graduation">
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Preserving the Legacy of Pace Academy</h2>
+                <p>For over a decade, I have had the incredible privilege of documenting every triumph, every performance, and every milestone at Pace Academy.</p>
+                <p>From nail-biting championship games to heartwarming graduation ceremonies, I am there to capture the moments that matter most. These photographs are not just images — they are memories that families treasure for generations.</p>
+                <p>Thank you for allowing me to be part of your family's journey at Pace Academy. Go Knights!</p>
+                <div class="about-signature">— Fred Assaf</div>
+                <div class="about-cta">
+                    <a href="https://www.fredassaf.org" class="btn-dark">
+                        Find Your Photos
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-brand">
+                <h3>Fred Assaf Sports Photography</h3>
+                <p>Capturing the spirit, passion, and pride of Pace Academy since 2014. Every moment matters.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="https://www.fredassaf.org">All Photo Galleries</a>
+                <a href="#galleries">Browse by Category</a>
+                <a href="#recent">Recent Albums</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="footer-column">
+                <h4>Categories</h4>
+                <a href="https://www.fredassaf.org">Sports</a>
+                <a href="https://www.fredassaf.org">Performances</a>
+                <a href="https://www.fredassaf.org">Graduation</a>
+                <a href="https://www.fredassaf.org">Special Events</a>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <a href="mailto:contact@fredassaf.org">Contact by Email</a>
+                <a href="https://www.paceacademy.org" target="_blank">Pace Academy Website</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made with care for the Pace Academy community</p>
+            <p>Pace Academy Knights • <a href="https://www.paceacademy.org">Atlanta, Georgia</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Full-Screen Slideshow
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 3000; // 3 seconds per slide - even faster rotation
+
+        function goToSlide(index) {
+            // Remove active from current slide
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            // Update current slide
+            currentSlide = index;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            
+            // Add active to new slide
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+
+        function resetSlideshow() {
+            clearInterval(slideInterval);
+            startSlideshow();
+        }
+
+        // Click on indicators to navigate
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+                resetSlideshow();
+            });
+        });
+
+        // Start the slideshow
+        startSlideshow();
+
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Filter tabs functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.querySelectorAll('.gallery-item, .featured-card, .stat-block').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
+            observer.observe(el);
+        });
+
+        // ==========================================
+        // PHOTO LIGHTBOX WITH DOWNLOAD & SHARE
+        // ==========================================
+
+        const lightbox = document.getElementById('photoLightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const instagramBtn = document.getElementById('instagramBtn');
+        const lightboxInfo = document.getElementById('lightboxInfo');
+
+        // Photo data for slideshow images
+        const photoData = [
+            { 
+                src: 'images/Flag-33.jpg', 
+                title: 'Flag Football Championship',
+                album: 'https://www.fredassaf.org/album/tjrcdujc',
+                downloadUrl: 'https://www.fredassaf.org/album/tjrcdujc'
+            },
+            { 
+                src: 'images/Softball-15.jpg', 
+                title: 'Varsity Softball',
+                album: 'https://www.fredassaf.org/album/iqactgay',
+                downloadUrl: 'https://www.fredassaf.org/album/iqactgay'
+            },
+            { 
+                src: 'images/KnightsFB-28.jpg', 
+                title: 'Knights Game Day',
+                album: 'https://www.fredassaf.org/album/ruhf430j',
+                downloadUrl: 'https://www.fredassaf.org/album/ruhf430j'
+            },
+            { 
+                src: 'images/MSPlay-120.jpg', 
+                title: 'Middle School Theater',
+                album: 'https://www.fredassaf.org/album/6yzrwfew',
+                downloadUrl: 'https://www.fredassaf.org/album/6yzrwfew'
+            },
+            { 
+                src: 'images/rafting-131.jpg', 
+                title: 'Outdoor Adventures',
+                album: 'https://www.fredassaf.org/album/d8xaoelp',
+                downloadUrl: 'https://www.fredassaf.org/album/d8xaoelp'
+            },
+            { 
+                src: 'images/vb-88.jpg', 
+                title: 'Volleyball Action',
+                album: 'https://www.fredassaf.org/album/5ssv87wh',
+                downloadUrl: 'https://www.fredassaf.org/album/5ssv87wh'
+            },
+            { 
+                src: 'images/boys-football2.jpg', 
+                title: 'Varsity Football',
+                album: 'https://www.fredassaf.org/album/ruhf430j',
+                downloadUrl: 'https://www.fredassaf.org/album/ruhf430j'
+            },
+            { 
+                src: 'images/grad.jpg', 
+                title: 'Graduation Ceremony',
+                album: 'https://www.fredassaf.org',
+                downloadUrl: 'https://www.fredassaf.org'
+            },
+            { 
+                src: 'images/violin.jpg', 
+                title: 'Fine Arts Performance',
+                album: 'https://www.fredassaf.org',
+                downloadUrl: 'https://www.fredassaf.org'
+            },
+            { 
+                src: 'images/boys-football.jpg', 
+                title: 'Football Action',
+                album: 'https://www.fredassaf.org/album/ruhf430j',
+                downloadUrl: 'https://www.fredassaf.org/album/ruhf430j'
+            }
+        ];
+
+        let currentPhotoIndex = 0;
+        let currentPhotoData = null;
+
+        // Open lightbox when clicking on slides
+        document.querySelectorAll('.slide').forEach((slide, index) => {
+            slide.style.cursor = 'pointer';
+            slide.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(index);
+            });
+        });
+
+        function openLightbox(index) {
+            currentPhotoIndex = index;
+            currentPhotoData = photoData[index];
+            
+            if (currentPhotoData) {
+                lightboxImage.src = currentPhotoData.src;
+                lightboxInfo.textContent = currentPhotoData.title + ' — Click buttons below to save or share';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Navigate between photos
+        function navigateLightbox(direction) {
+            currentPhotoIndex = (currentPhotoIndex + direction + photoData.length) % photoData.length;
+            currentPhotoData = photoData[currentPhotoIndex];
+            lightboxImage.src = currentPhotoData.src;
+            lightboxInfo.textContent = currentPhotoData.title + ' — Click buttons below to save or share';
+        }
+
+        document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox(1));
+
+        // ==========================================
+        // DOWNLOAD TO APPLE PHOTOS
+        // ==========================================
+        downloadBtn.addEventListener('click', async () => {
+            if (!currentPhotoData) return;
+            
+            try {
+                // Fetch the image and create a blob for download
+                const response = await fetch(currentPhotoData.src);
+                const blob = await response.blob();
+                
+                // Create download link
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = currentPhotoData.title.replace(/[^a-z0-9]/gi, '_') + '_FredAssafPhotos.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                
+                // Show success feedback
+                downloadBtn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                    Downloaded!
+                `;
+                setTimeout(() => {
+                    downloadBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Save to Photos
+                    `;
+                }, 2000);
+                
+            } catch (error) {
+                // Fallback: Open the original photo page for download
+                window.open(currentPhotoData.downloadUrl, '_blank');
+            }
+        });
+
+        // ==========================================
+        // SHARE TO INSTAGRAM & OTHER APPS
+        // ==========================================
+        
+        // Check if Web Share API is available (mainly mobile)
+        const canShare = navigator.share && navigator.canShare;
+
+        shareBtn.addEventListener('click', async () => {
+            if (!currentPhotoData) return;
+            
+            if (navigator.share) {
+                try {
+                    // Try to share the image file directly
+                    const response = await fetch(currentPhotoData.src);
+                    const blob = await response.blob();
+                    const file = new File([blob], currentPhotoData.title + '.png', { type: 'image/png' });
+                    
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: currentPhotoData.title,
+                            text: 'Check out this photo from Pace Academy! 📸 #PaceAcademy #GoKnights'
+                        });
+                    } else {
+                        // Share URL instead
+                        await navigator.share({
+                            title: currentPhotoData.title,
+                            text: 'Check out this photo from Pace Academy! 📸',
+                            url: currentPhotoData.album
+                        });
+                    }
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        // Fallback to sharing URL
+                        window.open(currentPhotoData.album, '_blank');
+                    }
+                }
+            } else {
+                // Desktop fallback - copy link
+                navigator.clipboard.writeText(currentPhotoData.album).then(() => {
+                    shareBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Link Copied!
+                    `;
+                    setTimeout(() => {
+                        shareBtn.innerHTML = `
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                            Share
+                        `;
+                    }, 2000);
+                });
+            }
+        });
+
+        // Instagram specific share
+        instagramBtn.addEventListener('click', async () => {
+            if (!currentPhotoData) return;
+            
+            // On mobile, Instagram can receive images via Web Share API
+            if (navigator.share) {
+                try {
+                    const response = await fetch(currentPhotoData.src);
+                    const blob = await response.blob();
+                    const file = new File([blob], 'pace_academy_photo.png', { type: 'image/png' });
+                    
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Pace Academy Photo',
+                            text: '📸 Captured by Fred Assaf Photography #PaceAcademy #GoKnights #PaceKnights'
+                        });
+                    } else {
+                        // Download first, then prompt to share
+                        downloadBtn.click();
+                        setTimeout(() => {
+                            alert('Photo downloaded! Open Instagram and share from your camera roll.');
+                        }, 1000);
+                    }
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        downloadBtn.click();
+                        alert('Photo downloaded! Open Instagram and share from your Photos.');
+                    }
+                }
+            } else {
+                // Desktop: Download and instruct
+                downloadBtn.click();
+                setTimeout(() => {
+                    alert('Photo downloaded! Open Instagram on your phone and share from your Photos.');
+                }, 500);
+            }
+        });
+    </script>
+
+    <!-- Photo Lightbox Modal -->
+    <div id="photoLightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button id="lightboxClose" class="lightbox-close">&times;</button>
+            
+            <button id="lightboxPrev" class="lightbox-nav lightbox-prev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            
+            <img id="lightboxImage" class="lightbox-image" src="" alt="Photo">
+            
+            <button id="lightboxNext" class="lightbox-nav lightbox-next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            
+            <div class="lightbox-actions">
+                <button id="downloadBtn" class="lightbox-btn btn-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Save to Photos
+                </button>
+                
+                <button id="instagramBtn" class="lightbox-btn btn-instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                    Share to Instagram
+                </button>
+                
+                <button id="shareBtn" class="lightbox-btn btn-share">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    Share
+                </button>
+            </div>
+            
+            <p id="lightboxInfo" class="lightbox-info">Click a button to save or share this photo</p>
+        </div>
+    </div>
+</body>
+</html>

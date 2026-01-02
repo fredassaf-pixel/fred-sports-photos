@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="energyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9BCBEB"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <linearGradient id="lensGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299e1"/>
+      <stop offset="50%" style="stop-color:#002855"/>
+      <stop offset="100%" style="stop-color:#001a3a"/>
+    </linearGradient>
+    <filter id="motionBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0,2"/>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Dynamic background circle -->
+  <circle cx="100" cy="100" r="95" fill="#002855"/>
+  
+  <!-- Speed lines - suggesting motion/action -->
+  <g stroke="#9BCBEB" stroke-linecap="round" opacity="0.3">
+    <line x1="15" y1="60" x2="45" y2="60" stroke-width="3"/>
+    <line x1="10" y1="75" x2="50" y2="75" stroke-width="4"/>
+    <line x1="8" y1="90" x2="55" y2="90" stroke-width="5"/>
+    <line x1="10" y1="105" x2="50" y2="105" stroke-width="4"/>
+    <line x1="15" y1="120" x2="45" y2="120" stroke-width="3"/>
+  </g>
+  
+  <!-- Camera aperture blades - dynamic rotation -->
+  <g transform="translate(100, 100)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#9BCBEB" stroke-width="4"/>
+    
+    <!-- Aperture blades - creating hexagonal opening -->
+    <g fill="#001a3a" stroke="#9BCBEB" stroke-width="1.5">
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(0)"/>
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(60)"/>
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(120)"/>
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(180)"/>
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(240)"/>
+      <path d="M0 -65 L25 -45 L15 -20 L-15 -20 L-25 -45 Z" transform="rotate(300)"/>
+    </g>
+    
+    <!-- Inner lens - the "eye" capturing the action -->
+    <circle cx="0" cy="0" r="28" fill="url(#lensGrad2)" stroke="#9BCBEB" stroke-width="2"/>
+    
+    <!-- Lens reflections -->
+    <ellipse cx="-8" cy="-10" rx="10" ry="8" fill="white" opacity="0.25"/>
+    <circle cx="8" cy="8" r="4" fill="white" opacity="0.15"/>
+    
+    <!-- Center focus point -->
+    <circle cx="0" cy="0" r="8" fill="#9BCBEB" opacity="0.8"/>
+    <circle cx="0" cy="0" r="4" fill="white"/>
+  </g>
+  
+  <!-- Dynamic "flash" burst -->
+  <g fill="#9BCBEB" filter="url(#glow2)">
+    <polygon points="165,35 170,50 185,50 173,60 178,75 165,65 152,75 157,60 145,50 160,50"/>
+  </g>
+  
+  <!-- Action dots -->
+  <g fill="#9BCBEB">
+    <circle cx="160" cy="90" r="4" opacity="0.8"/>
+    <circle cx="172" cy="105" r="3" opacity="0.6"/>
+    <circle cx="168" cy="120" r="2" opacity="0.4"/>
+  </g>
+  
+  <!-- Border accent -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="url(#energyGrad)" stroke-width="2" stroke-dasharray="8 4"/>
+</svg>
+

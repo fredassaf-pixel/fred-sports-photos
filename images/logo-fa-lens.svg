@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9BCBEB"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <linearGradient id="glassReflect" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#002855;stop-opacity:0.9"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main circle - camera lens style -->
+  <circle cx="100" cy="100" r="95" fill="#002855" stroke="#9BCBEB" stroke-width="4"/>
+  
+  <!-- Outer lens ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#9BCBEB" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Inner lens ring -->
+  <circle cx="100" cy="100" r="75" fill="#001a3a" stroke="#9BCBEB" stroke-width="3"/>
+  
+  <!-- Glass lens effect -->
+  <circle cx="100" cy="100" r="68" fill="url(#glassReflect)"/>
+  
+  <!-- Big stylized "FA" initials -->
+  <g transform="translate(100, 108)" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" fill="white">
+    <!-- F -->
+    <text x="-38" y="0" font-size="72" text-anchor="middle">F</text>
+    <!-- A -->
+    <text x="32" y="0" font-size="72" text-anchor="middle">A</text>
+  </g>
+  
+  <!-- Lens reflection arc -->
+  <path d="M50 60 Q100 40 150 60" stroke="white" stroke-width="8" fill="none" opacity="0.2" stroke-linecap="round"/>
+  
+  <!-- Small highlight dots -->
+  <circle cx="145" cy="65" r="6" fill="white" opacity="0.3"/>
+  <circle cx="155" cy="80" r="3" fill="white" opacity="0.2"/>
+  
+  <!-- Focus brackets in corners - sports photography style -->
+  <g stroke="#9BCBEB" stroke-width="2" fill="none" opacity="0.7">
+    <!-- Top left bracket -->
+    <path d="M30 45 L30 30 L45 30"/>
+    <!-- Top right bracket -->
+    <path d="M170 45 L170 30 L155 30"/>
+    <!-- Bottom left bracket -->
+    <path d="M30 155 L30 170 L45 170"/>
+    <!-- Bottom right bracket -->
+    <path d="M170 155 L170 170 L155 170"/>
+  </g>
+  
+  <!-- Center focus point -->
+  <g stroke="#9BCBEB" stroke-width="1" fill="none" opacity="0.5">
+    <line x1="95" y1="100" x2="85" y2="100"/>
+    <line x1="115" y1="100" x2="105" y2="100"/>
+    <line x1="100" y1="95" x2="100" y2="85"/>
+    <line x1="100" y1="115" x2="100" y2="105"/>
+  </g>
+</svg>
+

@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200">
+  <defs>
+    <linearGradient id="helmetShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8899aa"/>
+      <stop offset="30%" style="stop-color:#5a6a7a"/>
+      <stop offset="70%" style="stop-color:#3d4a5a"/>
+      <stop offset="100%" style="stop-color:#2d3748"/>
+    </linearGradient>
+    <linearGradient id="cameraBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#1a202c"/>
+    </linearGradient>
+    <linearGradient id="lensBarrel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a5568"/>
+      <stop offset="20%" style="stop-color:#2d3748"/>
+      <stop offset="50%" style="stop-color:#4a5568"/>
+      <stop offset="80%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#1a202c"/>
+    </linearGradient>
+    <linearGradient id="lensGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90c2"/>
+      <stop offset="50%" style="stop-color:#002855"/>
+      <stop offset="100%" style="stop-color:#001a3a"/>
+    </linearGradient>
+    <linearGradient id="plumeColors" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#002855"/>
+      <stop offset="50%" style="stop-color:#9BCBEB"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <filter id="shadow3d" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fun background burst -->
+  <ellipse cx="120" cy="100" rx="115" ry="95" fill="#002855"/>
+  <ellipse cx="120" cy="100" rx="108" ry="88" fill="none" stroke="#9BCBEB" stroke-width="3"/>
+  
+  <!-- Action lines radiating out -->
+  <g stroke="#9BCBEB" stroke-width="2" opacity="0.3">
+    <line x1="200" y1="40" x2="220" y2="25"/>
+    <line x1="210" y1="60" x2="232" y2="50"/>
+    <line x1="215" y1="85" x2="238" y2="85"/>
+    <line x1="210" y1="110" x2="232" y2="120"/>
+    <line x1="200" y1="130" x2="220" y2="145"/>
+  </g>
+  
+  <!-- Knight Character - fun and dynamic -->
+  <g filter="url(#shadow3d)">
+    
+    <!-- Knight body/torso -->
+    <ellipse cx="70" cy="150" rx="35" ry="30" fill="#5a6a7a" stroke="#3d4a5a" stroke-width="2"/>
+    
+    <!-- Armor chest plate detail -->
+    <path d="M50 140 Q70 155 90 140" stroke="#9BCBEB" stroke-width="2" fill="none" opacity="0.5"/>
+    
+    <!-- Knight arm reaching toward camera -->
+    <ellipse cx="95" cy="130" rx="15" ry="22" fill="#5a6a7a" stroke="#3d4a5a" stroke-width="2" transform="rotate(25, 95, 130)"/>
+    
+    <!-- Gauntlet/hand on camera -->
+    <circle cx="115" cy="115" r="12" fill="#4a5568" stroke="#3d4a5a" stroke-width="2"/>
+    <ellipse cx="120" cy="108" rx="6" ry="4" fill="#5a6a7a"/>
+    
+    <!-- Knight helmet - round and friendly -->
+    <ellipse cx="70" cy="85" rx="40" ry="42" fill="url(#helmetShine)" stroke="#3d4a5a" stroke-width="3"/>
+    
+    <!-- Helmet shine highlight -->
+    <ellipse cx="55" cy="65" rx="18" ry="14" fill="#8899aa" opacity="0.4"/>
+    
+    <!-- Visor - wide friendly eye slit -->
+    <path d="M38 80 Q70 70 102 80 Q102 95 70 100 Q38 95 38 80 Z" 
+          fill="#002855" stroke="#2d3748" stroke-width="2"/>
+    
+    <!-- Big friendly cartoon eyes -->
+    <g>
+      <!-- Left eye -->
+      <ellipse cx="52" cy="86" rx="11" ry="13" fill="white"/>
+      <ellipse cx="55" cy="87" rx="7" ry="9" fill="#002855"/>
+      <circle cx="57" cy="84" r="3" fill="white"/>
+      
+      <!-- Right eye -->
+      <ellipse cx="82" cy="86" rx="11" ry="13" fill="white"/>
+      <ellipse cx="85" cy="87" rx="7" ry="9" fill="#002855"/>
+      <circle cx="87" cy="84" r="3" fill="white"/>
+    </g>
+    
+    <!-- Excited eyebrow raises -->
+    <path d="M42 72 Q52 68 62 72" stroke="#3d4a5a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M78 72 Q88 68 98 72" stroke="#3d4a5a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Fun plume feathers -->
+    <g>
+      <!-- Center plume -->
+      <ellipse cx="70" cy="35" rx="8" ry="25" fill="#9BCBEB"/>
+      <ellipse cx="70" cy="32" rx="5" ry="20" fill="#002855"/>
+      
+      <!-- Left plume -->
+      <ellipse cx="55" cy="42" rx="6" ry="18" fill="#002855" transform="rotate(-20, 55, 42)"/>
+      <ellipse cx="55" cy="40" rx="4" ry="14" fill="#9BCBEB" transform="rotate(-20, 55, 40)"/>
+      
+      <!-- Right plume -->
+      <ellipse cx="85" cy="42" rx="6" ry="18" fill="#002855" transform="rotate(20, 85, 42)"/>
+      <ellipse cx="85" cy="40" rx="4" ry="14" fill="#9BCBEB" transform="rotate(20, 85, 40)"/>
+      
+      <!-- Extra flourish -->
+      <ellipse cx="45" cy="50" rx="4" ry="12" fill="#9BCBEB" transform="rotate(-35, 45, 50)"/>
+      <ellipse cx="95" cy="50" rx="4" ry="12" fill="#9BCBEB" transform="rotate(35, 95, 50)"/>
+    </g>
+  </g>
+  
+  <!-- BIG CAMERA WITH TELEPHOTO LENS -->
+  <g filter="url(#shadow3d)">
+    
+    <!-- Camera body - chunky and fun -->
+    <rect x="120" y="85" width="55" height="45" rx="8" ry="8" fill="url(#cameraBody)" stroke="#9BCBEB" stroke-width="3"/>
+    
+    <!-- Camera top (pentaprism bump) -->
+    <path d="M128 78 L142 68 L156 68 L170 78 L128 78 Z" fill="url(#cameraBody)" stroke="#9BCBEB" stroke-width="2"/>
+    
+    <!-- Viewfinder -->
+    <rect x="140" y="70" width="15" height="8" rx="2" fill="#1a202c" stroke="#5a6a7a" stroke-width="1"/>
+    
+    <!-- Flash hotshoe -->
+    <rect x="155" y="65" width="18" height="6" rx="1" fill="#9BCBEB"/>
+    <rect x="157" y="66" width="14" height="3" fill="white" opacity="0.6"/>
+    
+    <!-- Mode dial -->
+    <circle cx="168" cy="82" r="6" fill="#4a5568" stroke="#5a6a7a" stroke-width="1"/>
+    <circle cx="168" cy="82" r="3" fill="#2d3748"/>
+    
+    <!-- Shutter button - big and prominent -->
+    <ellipse cx="165" cy="72" rx="7" ry="5" fill="#9BCBEB" stroke="#002855" stroke-width="2"/>
+    <ellipse cx="164" cy="71" rx="3" ry="2" fill="white" opacity="0.7"/>
+    
+    <!-- Camera grip -->
+    <rect x="165" y="90" width="12" height="35" rx="3" fill="#2d3748" stroke="#4a5568" stroke-width="1"/>
+    <line x1="169" y1="95" x2="169" y2="120" stroke="#4a5568" stroke-width="1"/>
+    <line x1="173" y1="95" x2="173" y2="120" stroke="#4a5568" stroke-width="1"/>
+    
+    <!-- BIG TELEPHOTO LENS -->
+    <g>
+      <!-- Lens barrel - long and impressive -->
+      <rect x="175" y="92" width="50" height="32" rx="16" ry="16" fill="url(#lensBarrel)" stroke="#5a6a7a" stroke-width="2"/>
+      
+      <!-- Lens rings/ridges -->
+      <ellipse cx="185" cy="108" rx="3" ry="16" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      <ellipse cx="200" cy="108" rx="3" ry="14" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      <ellipse cx="212" cy="108" rx="3" ry="12" fill="none" stroke="#5a6a7a" stroke-width="2"/>
+      
+      <!-- Focus ring texture -->
+      <g stroke="#4a5568" stroke-width="1" opacity="0.5">
+        <line x1="188" y1="95" x2="188" y2="121"/>
+        <line x1="191" y1="94" x2="191" y2="122"/>
+        <line x1="194" y1="93" x2="194" y2="123"/>
+        <line x1="197" y1="93" x2="197" y2="123"/>
+      </g>
+      
+      <!-- Lens hood -->
+      <path d="M220 92 L235 88 L235 128 L220 124 Z" fill="#2d3748" stroke="#4a5568" stroke-width="2"/>
+      
+      <!-- Front lens element - big and glassy -->
+      <ellipse cx="235" cy="108" rx="5" ry="20" fill="url(#lensGlass)" stroke="#9BCBEB" stroke-width="2"/>
+      
+      <!-- Lens reflections -->
+      <ellipse cx="233" cy="100" rx="2" ry="8" fill="white" opacity="0.4"/>
+      <ellipse cx="236" cy="115" rx="1.5" ry="5" fill="white" opacity="0.2"/>
+      
+      <!-- Red recording indicator -->
+      <circle cx="178" cy="100" r="3" fill="#e53e3e"/>
+      <circle cx="178" cy="100" r="1.5" fill="#fc8181"/>
+    </g>
+    
+    <!-- Lens mount ring -->
+    <ellipse cx="175" cy="108" rx="4" ry="18" fill="#4a5568" stroke="#5a6a7a" stroke-width="1"/>
+  </g>
+  
+  <!-- Flash/action effects -->
+  <g fill="#9BCBEB" filter="url(#glow)">
+    <polygon points="232,70 236,75 242,72 238,78 244,82 237,82 235,88 233,82 226,82 232,78 228,72 234,75"/>
+    <circle cx="225" cy="60" r="3"/>
+    <circle cx="218" cy="68" r="2"/>
+  </g>
+  
+  <!-- Fun "click" action lines -->
+  <g stroke="#9BCBEB" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <line x1="230" y1="55" x2="235" y2="48"/>
+    <line x1="238" y1="62" x2="245" y2="58"/>
+    <line x1="240" y1="75" x2="248" y2="75"/>
+  </g>
+</svg>
+

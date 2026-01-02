@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="armor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ca3af"/>
+      <stop offset="30%" style="stop-color:#6b7280"/>
+      <stop offset="70%" style="stop-color:#4b5563"/>
+      <stop offset="100%" style="stop-color:#374151"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <filter id="shadow3">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#002855" stroke="#9BCBEB" stroke-width="4"/>
+  
+  <!-- Knight helmet visor shape - frames the camera lens -->
+  <g transform="translate(100, 100)" filter="url(#shadow3)">
+    
+    <!-- Helmet top dome -->
+    <path d="M-55 -20 Q-55 -70 0 -80 Q55 -70 55 -20" fill="url(#armor)" stroke="#4b5563" stroke-width="2"/>
+    
+    <!-- Helmet dome shine -->
+    <path d="M-40 -50 Q0 -65 40 -50" stroke="white" stroke-width="4" fill="none" opacity="0.2" stroke-linecap="round"/>
+    
+    <!-- Plume crest -->
+    <g>
+      <ellipse cx="0" cy="-85" rx="8" ry="18" fill="#9BCBEB"/>
+      <ellipse cx="-12" cy="-78" rx="5" ry="14" fill="#002855"/>
+      <ellipse cx="12" cy="-78" rx="5" ry="14" fill="#002855"/>
+      <ellipse cx="-12" cy="-80" rx="4" ry="11" fill="#9BCBEB"/>
+      <ellipse cx="12" cy="-80" rx="4" ry="11" fill="#9BCBEB"/>
+    </g>
+    
+    <!-- Visor slit - this IS the camera lens! -->
+    <path d="M-50 -10 Q0 -25 50 -10 L45 25 Q0 35 -45 25 Z" fill="#001a3a" stroke="#4b5563" stroke-width="2"/>
+    
+    <!-- Camera lens inside visor -->
+    <ellipse cx="0" cy="5" rx="35" ry="22" fill="url(#blueGlow)" stroke="#9BCBEB" stroke-width="2"/>
+    <ellipse cx="0" cy="5" rx="26" ry="16" fill="#001a3a"/>
+    <ellipse cx="0" cy="5" rx="18" ry="11" fill="#002855"/>
+    
+    <!-- Lens reflections -->
+    <ellipse cx="-10" cy="-2" rx="10" ry="5" fill="white" opacity="0.25"/>
+    <ellipse cx="8" cy="10" rx="5" ry="3" fill="white" opacity="0.15"/>
+    
+    <!-- Lens center - glowing -->
+    <ellipse cx="0" cy="5" rx="8" ry="5" fill="#9BCBEB"/>
+    <ellipse cx="0" cy="4" rx="4" ry="2.5" fill="white"/>
+    
+    <!-- Helmet face guard/cheeks -->
+    <path d="M-55 -10 L-55 40 Q-50 55 -35 55" fill="url(#armor)" stroke="#4b5563" stroke-width="2"/>
+    <path d="M55 -10 L55 40 Q50 55 35 55" fill="url(#armor)" stroke="#4b5563" stroke-width="2"/>
+    
+    <!-- Decorative rivets -->
+    <g fill="#9BCBEB">
+      <circle cx="-48" cy="0" r="3"/>
+      <circle cx="-48" cy="20" r="3"/>
+      <circle cx="-48" cy="40" r="3"/>
+      <circle cx="48" cy="0" r="3"/>
+      <circle cx="48" cy="20" r="3"/>
+      <circle cx="48" cy="40" r="3"/>
+    </g>
+  </g>
+  
+  <!-- Flash effect at top -->
+  <g fill="white" opacity="0.9">
+    <polygon points="100,8 103,15 110,15 105,20 107,27 100,22 93,27 95,20 90,15 97,15"/>
+  </g>
+  
+  <!-- Small action sparkles -->
+  <g fill="#9BCBEB">
+    <circle cx="165" cy="45" r="4"/>
+    <circle cx="175" cy="60" r="2.5"/>
+    <circle cx="35" cy="45" r="4"/>
+    <circle cx="25" cy="60" r="2.5"/>
+  </g>
+</svg>
+

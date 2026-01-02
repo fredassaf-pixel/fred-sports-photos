@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Gradients for depth -->
+    <linearGradient id="helmetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a5568"/>
+      <stop offset="50%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#1a202c"/>
+    </linearGradient>
+    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9BCBEB"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <linearGradient id="cameraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#002855"/>
+      <stop offset="100%" style="stop-color:#001a3a"/>
+    </linearGradient>
+    <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a202c"/>
+      <stop offset="40%" style="stop-color:#2d3748"/>
+      <stop offset="100%" style="stop-color:#4a5568"/>
+    </linearGradient>
+    <linearGradient id="lensShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9BCBEB;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#9BCBEB;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="plumeGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#002855"/>
+      <stop offset="50%" style="stop-color:#9BCBEB"/>
+      <stop offset="100%" style="stop-color:#002855"/>
+    </linearGradient>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#002855" stroke="#9BCBEB" stroke-width="3"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#9BCBEB" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Knight Helmet - Main Shape -->
+  <g filter="url(#shadow)">
+    <!-- Helmet dome -->
+    <path d="M60 95 Q60 50 100 40 Q140 50 140 95 L140 115 Q140 130 125 135 L75 135 Q60 130 60 115 Z" 
+          fill="url(#helmetGrad)" stroke="#1a202c" stroke-width="2"/>
+    
+    <!-- Helmet ridge/crest -->
+    <path d="M100 35 Q100 25 100 20 L100 40" 
+          stroke="#4a5568" stroke-width="6" stroke-linecap="round" fill="none"/>
+    
+    <!-- Plume (feathers) -->
+    <g>
+      <path d="M100 20 Q85 10 75 25 Q80 15 100 18" fill="url(#plumeGrad)"/>
+      <path d="M100 20 Q90 5 85 20 Q88 10 100 17" fill="#9BCBEB"/>
+      <path d="M100 20 Q110 5 115 20 Q112 10 100 17" fill="#9BCBEB"/>
+      <path d="M100 20 Q115 10 125 25 Q120 15 100 18" fill="url(#plumeGrad)"/>
+    </g>
+    
+    <!-- Visor/Eye slit -->
+    <path d="M68 85 L132 85 L128 95 L72 95 Z" 
+          fill="url(#visorGrad)" stroke="#1a202c" stroke-width="1"/>
+    
+    <!-- Visor shine -->
+    <path d="M70 86 L130 86 L128 89 L72 89 Z" 
+          fill="#9BCBEB" opacity="0.4"/>
+    
+    <!-- Nose guard -->
+    <path d="M95 85 L95 110 Q95 115 100 115 Q105 115 105 110 L105 85" 
+          fill="url(#helmetGrad)" stroke="#1a202c" stroke-width="1"/>
+    
+    <!-- Face guard bars -->
+    <line x1="75" y1="100" x2="95" y2="100" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+    <line x1="105" y1="100" x2="125" y2="100" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+    <line x1="80" y1="110" x2="95" y2="110" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+    <line x1="105" y1="110" x2="120" y2="110" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+    <line x1="85" y1="120" x2="95" y2="120" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+    <line x1="105" y1="120" x2="115" y2="120" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Camera - positioned at bottom right, overlapping helmet -->
+  <g transform="translate(110, 115)" filter="url(#shadow)">
+    <!-- Camera body -->
+    <rect x="0" y="10" width="55" height="38" rx="5" ry="5" fill="url(#cameraGrad)" stroke="#9BCBEB" stroke-width="2"/>
+    
+    <!-- Camera top (viewfinder bump) -->
+    <rect x="5" y="3" width="18" height="10" rx="2" ry="2" fill="url(#cameraGrad)" stroke="#9BCBEB" stroke-width="1"/>
+    
+    <!-- Flash -->
+    <rect x="35" y="5" width="12" height="8" rx="1" ry="1" fill="#9BCBEB"/>
+    <rect x="36" y="6" width="10" height="3" fill="#fff" opacity="0.6"/>
+    
+    <!-- Lens outer ring -->
+    <circle cx="27" cy="29" r="18" fill="url(#lensGrad)" stroke="#1a202c" stroke-width="2"/>
+    
+    <!-- Lens middle ring -->
+    <circle cx="27" cy="29" r="14" fill="#1a202c" stroke="#4a5568" stroke-width="1"/>
+    
+    <!-- Lens inner (glass) -->
+    <circle cx="27" cy="29" r="10" fill="#002855"/>
+    
+    <!-- Lens reflection/shine -->
+    <ellipse cx="23" cy="25" rx="5" ry="4" fill="url(#lensShine)"/>
+    
+    <!-- Small lens detail -->
+    <circle cx="27" cy="29" r="4" fill="#001a3a" stroke="#002855" stroke-width="1"/>
+    
+    <!-- Lens center dot -->
+    <circle cx="27" cy="29" r="1.5" fill="#9BCBEB" filter="url(#glow)"/>
+    
+    <!-- Shutter button -->
+    <circle cx="48" cy="12" r="4" fill="#9BCBEB" stroke="#002855" stroke-width="1"/>
+    <circle cx="48" cy="12" r="2" fill="#fff" opacity="0.5"/>
+  </g>
+  
+  <!-- Decorative stars/sparkles around camera -->
+  <g fill="#9BCBEB" filter="url(#glow)">
+    <polygon points="170,100 172,104 176,104 173,107 174,111 170,108 166,111 167,107 164,104 168,104" transform="scale(0.6) translate(110, 30)"/>
+    <polygon points="170,100 172,104 176,104 173,107 174,111 170,108 166,111 167,107 164,104 168,104" transform="scale(0.4) translate(280, 120)"/>
+    <circle cx="175" cy="165" r="2"/>
+  </g>
+  
+  <!-- "FA" initials subtly integrated -->
+  <text x="68" y="78" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#9BCBEB" opacity="0.7">F</text>
+  <text x="125" y="78" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#9BCBEB" opacity="0.7">A</text>
+</svg>
+
