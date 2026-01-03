@@ -1016,80 +1016,95 @@
         }
 
         @media (max-width: 768px) {
-            /* MOBILE: Photo-focused, minimal text overlay */
+            /* MOBILE: Split layout - title top, rest bottom */
             
-            /* Smaller, more compact hero content */
             .hero-content {
-                padding: 0 1.25rem;
+                padding: 0;
                 max-width: 100%;
-                text-align: center;
-                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                padding-top: 80px;
+                padding-bottom: 70px;
             }
             
+            /* Title section - positioned at top */
             .hero-badge {
-                font-size: 0.65rem;
-                padding: 0.4rem 0.8rem;
-                margin-bottom: 0.75rem;
+                font-size: 0.55rem;
+                padding: 0.3rem 0.6rem;
+                margin-bottom: 0.4rem;
+                align-self: center;
             }
             
             .hero-badge .pulse {
-                width: 6px;
-                height: 6px;
+                width: 5px;
+                height: 5px;
             }
             
             .hero-title {
-                font-size: 1.5rem;
-                letter-spacing: -0.5px;
-                line-height: 1.2;
-                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                letter-spacing: -0.3px;
+                line-height: 1.15;
+                margin-bottom: auto;
+                text-align: center;
+                padding: 0 1rem;
+            }
+            
+            .hero-title .accent {
+                display: inline;
             }
 
+            /* Bottom section */
             .hero-description {
-                font-size: 0.85rem;
-                line-height: 1.4;
-                margin-bottom: 1rem;
+                font-size: 0.7rem;
+                line-height: 1.35;
+                margin-bottom: 0.6rem;
                 opacity: 0.9;
+                text-align: center;
+                padding: 0 1.5rem;
+                margin-top: auto;
             }
 
             .hero-actions {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                gap: 0.75rem;
+                gap: 0.5rem;
             }
 
             .btn-primary, .btn-ghost {
                 width: auto;
-                padding: 0.6rem 1rem;
-                font-size: 0.8rem;
+                padding: 0.45rem 0.75rem;
+                font-size: 0.7rem;
             }
             
             .btn-primary svg, .btn-ghost svg {
-                width: 14px;
-                height: 14px;
+                width: 12px;
+                height: 12px;
             }
 
             /* Compact slide indicators */
             .slide-indicators {
-                gap: 0.35rem;
-                bottom: 1rem;
+                gap: 0.3rem;
+                bottom: 12px;
                 left: 50%;
                 transform: translateX(-50%);
             }
 
             .indicator {
-                width: 20px;
-                height: 3px;
+                width: 16px;
+                height: 2px;
             }
 
-            /* Lighter overlay so photos show through better */
+            /* Much lighter overlay so photos dominate */
             .slide-overlay {
                 background: linear-gradient(
-                    to top,
-                    rgba(0, 20, 50, 0.7) 0%,
-                    rgba(0, 20, 50, 0.3) 40%,
-                    rgba(0, 20, 50, 0.1) 70%,
-                    transparent 100%
+                    to bottom,
+                    rgba(0, 15, 40, 0.5) 0%,
+                    transparent 25%,
+                    transparent 60%,
+                    rgba(0, 15, 40, 0.6) 100%
                 ) !important;
             }
 
@@ -1137,46 +1152,61 @@
             
             /* Section titles smaller on mobile */
             .section-title {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
             }
             
             .section-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
             
             /* Compact logo for mobile */
             .logo-icon {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
             }
             
             .logo-text {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+            }
+            
+            nav {
+                padding: 0.75rem 1rem;
             }
         }
         
         /* Extra small phones */
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+                padding: 0 0.75rem;
             }
             
             .hero-description {
-                font-size: 0.8rem;
-                padding: 0 0.5rem;
+                font-size: 0.65rem;
+                padding: 0 1rem;
             }
             
             .hero-badge {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
+                padding: 0.25rem 0.5rem;
             }
             
             .btn-primary, .btn-ghost {
-                padding: 0.5rem 0.85rem;
-                font-size: 0.75rem;
+                padding: 0.4rem 0.65rem;
+                font-size: 0.65rem;
             }
             
             .indicator {
-                width: 16px;
+                width: 12px;
+            }
+            
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 0.7rem;
             }
         }
 
