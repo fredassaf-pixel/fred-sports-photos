@@ -97,6 +97,10 @@
             font-weight: 700;
         }
 
+        .mobile-break {
+            display: none;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -1155,6 +1159,12 @@
             
             .logo-text {
                 font-size: 0.8rem;
+                text-align: center;
+                line-height: 1.2;
+            }
+            
+            .mobile-break {
+                display: block;
             }
             
             nav {
@@ -1390,7 +1400,7 @@
             <div class="logo-icon">
                 <img src="images/logo-fred-sports-transparent.png" alt="Fred's Sports Photos - Go Knights!">
             </div>
-            <span class="logo-text">Fred Assaf Photography</span>
+            <span class="logo-text">Fred Assaf<br class="mobile-break"> Photography</span>
         </a>
         <ul class="nav-links">
             <li><a href="#galleries">Photo Galleries</a></li>
