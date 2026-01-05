@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Preview - iPhone 14 Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #9BCBEB;
+        }
+        
+        .device-info {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        .phone-frame {
+            background: #1c1c1e;
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 
+                0 0 0 3px #2c2c2e,
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 0 20px rgba(255,255,255,0.05);
+        }
+        
+        .phone-screen {
+            width: 393px;
+            height: 852px;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+        
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 35px;
+            background: #1c1c1e;
+            border-radius: 0 0 20px 20px;
+            z-index: 100;
+        }
+        
+        .dynamic-island {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95px;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 101;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-refresh {
+            background: #9BCBEB;
+            color: #002855;
+        }
+        
+        .btn-refresh:hover {
+            background: #7bb8e0;
+        }
+        
+        .btn-rotate {
+            background: #002855;
+            color: white;
+            border: 1px solid #9BCBEB;
+        }
+        
+        .btn-rotate:hover {
+            background: #003366;
+        }
+        
+        .landscape .phone-screen {
+            width: 852px;
+            height: 393px;
+        }
+        
+        .landscape .phone-frame {
+            border-radius: 40px;
+        }
+        
+        .landscape .notch,
+        .landscape .dynamic-island {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 iPhone 14 Pro Preview</h1>
+    <p class="device-info">393 × 852 pixels • Portrait Mode</p>
+    
+    <div class="phone-frame" id="phoneFrame">
+        <div class="phone-screen">
+            <div class="dynamic-island"></div>
+            <iframe src="https://improve-photos-website.vercel.app" id="preview"></iframe>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn btn-refresh" onclick="document.getElementById('preview').src = document.getElementById('preview').src">
+            🔄 Refresh
+        </button>
+        <button class="btn btn-rotate" onclick="toggleOrientation()">
+            🔄 Rotate
+        </button>
+    </div>
+    
+    <script>
+        let isLandscape = false;
+        const info = document.querySelector('.device-info');
+        const frame = document.getElementById('phoneFrame');
+        
+        function toggleOrientation() {
+            isLandscape = !isLandscape;
+            if (isLandscape) {
+                frame.parentElement.classList.add('landscape');
+                info.textContent = '852 × 393 pixels • Landscape Mode';
+            } else {
+                frame.parentElement.classList.remove('landscape');
+                info.textContent = '393 × 852 pixels • Portrait Mode';
+            }
+        }
+    </script>
+</body>
+</html>
+
